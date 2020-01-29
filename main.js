@@ -1,21 +1,37 @@
 function computerPlay() {
 
-    let decision = Math.floor(Math.random() * 3) + 1;
-    let choice;
+  let computerDecision = Math.floor(Math.random() * 3) + 1;
+  let choice;
 
-    switch (decision) {
+  switch (computerDecision) {
+    case 1:
+      choice = "rock";
+      return choice;
+    case 2:
+      choice = "paper";
+      return choice;
+    case 3:
+      choice = "scissors";
+      return choice;
+  }
+}
 
-        case 1:
-            choice = "Rock";
-            return choice;
-         break;
-        case 2:
-            choice = "Paper";     
-            return choice;
-        break;
-        case 3:
-            choice = "Scissors"
-            return choice;
-        break;
-    }
+let playerSelection = () => {
+  let playerChoice = prompt(
+    " Please, enter your choice between rock, paper and scissors: ",
+    "rock"
+  );
+  playerChoice = playerChoice.toLowerCase();
+
+  if (
+    playerChoice === "rock" ||
+    playerChoice === "paper" ||
+    playerChoice === "scissors"
+  ) {
+    return playerChoice;
+  } else {
+    return "Wrong input, you must select either rock, paper or scissors.";
+  }
 };
+
+
