@@ -1,18 +1,18 @@
-function computerPlay() {
+function computerSelection() {
 
-  let computerDecision = Math.floor(Math.random() * 3) + 1;
-  let choice;
+  let computerChoice = Math.floor(Math.random() * 3) + 1;
+  let result;
 
   switch (computerDecision) {
     case 1:
-      choice = "rock";
-      return choice;
+      result = "rock";
+      return result;
     case 2:
-      choice = "paper";
-      return choice;
+      result = "paper";
+      return result;
     case 3:
-      choice = "scissors";
-      return choice;
+      result = "scissors";
+      return result;
   }
 }
 
