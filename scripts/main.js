@@ -1,3 +1,55 @@
+const buttons = document.querySelectorAll(".btn");
+let playerCount = 0;
+let computerCount = 0;
+let matchsPlayed = 0;
+let ties = 0;
+let currentMatch;
+let playerChoice;
+let computerChoice;
+
+
+eventListeners();
+
+function eventListeners() {
+  buttons.forEach(button => {
+    button.addEventListener("click", e => {
+      const gamecount = document.querySelector('.gamecount');
+      const scoreboard = document.querySelector('.scoreboard');
+      const playerSelect = document.querySelector('#playerSelect');
+      const computerSelect = document.querySelector('#computerSelect');
+      const matchResult = document.querySelector('#matchResult');
+
+      playerChoice = e.target.id;
+      playerSelect.textContent = `Player selected: ${playerChoice}`;
+
+      computerChoice = computerSelection();
+      computerSelect.textContent = `Computer selected: ${computerChoice}`;
+
+      currentMatch = match(playerChoice, computerChoice);
+      matchsPlayed++;
+      gamecount.textContent = `Game ${matchsPlayed}`;
+
+
+      if (currentMatch === 'tie') {
+
+        ties++;
+        matchResult.textContent = `Match resulted in a tie, better try next time.`;
+      } else if (currentMatch === true) {
+
+        playerCount++;
+        matchResult.textContent = `Player wins the round! `;
+      } else {
+
+        computerCount++;
+        matchResult.textContent = `Computer wins the round!`;
+      }
+
+      scoreboard.textContent = `Player ${playerCount} -  ${computerCount} Computer`;
+      console.log(computerCount);
+    });
+  });
+}
+
 function computerSelection() {
   let computerChoice = Math.floor(Math.random() * 3) + 1;
   let result;
@@ -14,24 +66,6 @@ function computerSelection() {
       return result;
   }
 }
-
-let playerSelection = () => {
-  let playerChoice = prompt(
-    "Please, enter your choice between rock, paper and scissors:",
-    "rock"
-  );
-  playerChoice = playerChoice.toLowerCase();
-
-  if (
-    playerChoice === "rock" ||
-    playerChoice === "paper" ||
-    playerChoice === "scissors"
-  ) {
-    return playerChoice;
-  } else {
-    return "Wrong input, you must select either rock, paper or scissors.";
-  }
-};
 
 let match = (playerChoice, computerChoice) => {
   let playerScore = false;
@@ -74,7 +108,7 @@ let match = (playerChoice, computerChoice) => {
     case "scissors":
       if (computerChoice === playerChoice) {
         console.log("Scissors!, It's a tie between you and the computer.");
-    
+
         return "tie";
       } else if (computerChoice === "rock") {
         console.log("You Lose! Rock beats Scissors!");
@@ -88,49 +122,4 @@ let match = (playerChoice, computerChoice) => {
         return playerScore;
       }
   }
-};
-
-function game() {
-
-    let result = false;
-    let playerWin = 0; 
-    let computerWin = 0;
-    let tie = 0;
-
-    for (let i = 1; i <= 5; i++) {
-
-        let roundMessage = `Round ${i}`;
-        let player = playerSelection();
-        let computer = computerSelection();
-        console.log(roundMessage);
-
-        result = match(player, computer);
-
-        if (result == "tie") {
-
-            tie++;
-        } else if (result == true) {
-
-            playerWin++;
-        } else {
-
-            computerWin++;
-        }
-    }
-
-    console.log("End of the best of five match! results: ");
-    console.log(`Player: ${playerWin} points.`);
-    console.log(`Computer: ${computerWin} points.`);
-    console.log(`Ties: ${tie}`);
-
-    if (playerWin > computerWin) {
-
-        console.log(`Player wins! by a difference in points of: ${playerWin - computerWin} points.`);
-    } else if (computerWin > playerWin) {
-
-        console.log(`Computer wins! by a difference in points of: ${computerWin - playerWin} points!`);
-    } else {
-
-        console.log(`Best of five ended in a tie, Player: ${playerWin}, Computer:${computerWin}`);
-    }
 };

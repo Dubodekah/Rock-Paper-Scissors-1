@@ -1,0 +1,94 @@
+#maintitle {
+  font-weight: bold;
+  padding: 0.4em 0.7em;
+  font-size: 3.5em;
+}
+
+#resultContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  font-size: 3.5rem;
+  font-weight: bolder;
+  color: black;
+}
+
+#playerSelect, #computerSelect {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+div .description,
+div .btncontainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+div .btncontainer {
+  margin: 6em;
+}
+
+.btn:hover {
+  background: linear-gradient(to bottom, #0f01d2 5%, #2a33e8 100%);
+  background-color: #0105d2;
+}
+
+.btn:active {
+  position: relative;
+  top: 1px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.gamecount,
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gamecount {
+  padding: 0.4em 0.7em;
+  font-style: italic;
+  font-size: 3em;
+}
+
+.scoreboard {
+  padding: 16px 32px;
+  font-size: 4em;
+}
+
+.img {
+  background-image: url("resources/jajanken.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btn {
+  box-shadow: 0px 0px 0px 0px #f0f7fa;
+  background: linear-gradient(to bottom, #3804f3 5%, #010fd2 100%);
+  background-color: #2400f3fd;
+  border-radius: 20px;
+  border: 2px solid #0b07e9;
+  display: inline-block;
+  cursor: pointer;
+  color: #d5e67a;
+  font-family: Verdana;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 16px 51px;
+  text-decoration: none;
+  text-shadow: -1px 0px 0px #162a73;
+}
+
+body,
+html {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: rgba(21, 9, 134, 0.795);
+  height: 100%;
+  margin: 0;
+}
