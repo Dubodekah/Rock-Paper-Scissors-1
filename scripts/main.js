@@ -6,11 +6,38 @@ let ties = 0;
 let currentMatch;
 let playerChoice;
 let computerChoice;
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#Scissors');
 const gamecount = document.querySelector(".gamecount");
 const scoreboard = document.querySelector(".scoreboard");
 const playerSelect = document.querySelector("#playerSelect");
 const computerSelect = document.querySelector("#computerSelect");
 const matchResult = document.querySelector("#matchResult");
+
+
+addEvenListeners();
+
+function addEvenListeners() {
+
+  rock.addEventListener('click', (e) => {
+
+    playerChoice = 'rock';
+    startGame();
+  })
+
+  paper.addEventListener('click', (e) => {
+
+    playerChoice = 'paper';
+    startGame();
+  })
+
+  scissors.addEventListener('click', (e) => {
+
+    playerChoice = 'scissors';
+    startGame();
+  })
+}
 
 function reset() {
 
@@ -46,7 +73,7 @@ function computerSelection() {
   }
 }
 
-let match = (playerChoice, computerChoice) => {
+let round = (playerChoice, computerChoice) => {
   let playerScore = false;
 
   switch (playerChoice) {
