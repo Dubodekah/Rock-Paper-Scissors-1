@@ -28,6 +28,11 @@ div .btncontainer {
   margin: 6em;
 }
 
+.btn:disabled {
+
+  display: none;
+}
+
 .btn:hover {
   background: linear-gradient(to bottom, #0f01d2 5%, #2a33e8 100%);
   background-color: #0105d2;
@@ -68,7 +73,7 @@ div .btncontainer {
   background-size: cover;
 }
 
-.btn {
+button {
   box-shadow: 0px 0px 0px 0px #f0f7fa;
   background: linear-gradient(to bottom, #3804f3 5%, #010fd2 100%);
   background-color: #2400f3fd;
