@@ -6,48 +6,19 @@ let ties = 0;
 let currentMatch;
 let playerChoice;
 let computerChoice;
+const gamecount = document.querySelector(".gamecount");
+const scoreboard = document.querySelector(".scoreboard");
+const playerSelect = document.querySelector("#playerSelect");
+const computerSelect = document.querySelector("#computerSelect");
+const matchResult = document.querySelector("#matchResult");
 
+function reset() {
 
-eventListeners();
-
-function eventListeners() {
-  buttons.forEach(button => {
-    button.addEventListener("click", e => {
-      const gamecount = document.querySelector('.gamecount');
-      const scoreboard = document.querySelector('.scoreboard');
-      const playerSelect = document.querySelector('#playerSelect');
-      const computerSelect = document.querySelector('#computerSelect');
-      const matchResult = document.querySelector('#matchResult');
-
-      playerChoice = e.target.id;
-      playerSelect.textContent = `Player selected: ${playerChoice}`;
-
-      computerChoice = computerSelection();
-      computerSelect.textContent = `Computer selected: ${computerChoice}`;
-
-      currentMatch = match(playerChoice, computerChoice);
-      matchsPlayed++;
-      gamecount.textContent = `Game ${matchsPlayed}`;
-
-
-      if (currentMatch === 'tie') {
-
-        ties++;
-        matchResult.textContent = `Match resulted in a tie, better try next time.`;
-      } else if (currentMatch === true) {
-
-        playerCount++;
-        matchResult.textContent = `Player wins the round! `;
-      } else {
-
-        computerCount++;
-        matchResult.textContent = `Computer wins the round!`;
-      }
-
-      scoreboard.textContent = `Player ${playerCount} -  ${computerCount} Computer`;
-      console.log(computerCount);
-    });
-  });
+  playerCount = 0;
+  computerCount = 0;
+  matchsPlayed = 0;
+  ties = 0;
+  currentMatch = 0;
 }
 
 function computerSelection() {
