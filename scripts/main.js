@@ -19,6 +19,14 @@ function reset() {
   matchsPlayed = 0;
   ties = 0;
   currentMatch = 0;
+  playerChoice = '';
+  computerChoice = '';
+  gamecount.textContent = `Game: ${matchsPlayed}`;
+  scoreboard.textContent = `Player ${playerCount} - ${computerCount} Computer`;
+  playerSelect.textContent = '';
+  computerSelect.textContent = '';
+  matchResult.textContent = '';
+
 }
 
 function computerSelection() {
